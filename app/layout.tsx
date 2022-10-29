@@ -1,3 +1,5 @@
+import "@/styles/global.css";
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html>
@@ -6,7 +8,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       </head>
       <body>
         <div
-          id="layout"
+          id="root-layout"
           style={{
             display: "flex",
             alignItems: "center",
