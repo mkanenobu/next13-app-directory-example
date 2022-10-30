@@ -1,10 +1,19 @@
 export type ItemId = number;
 
-const getBestItemIds = (): Promise<ItemId[]> => {
-  return fetch("https://hacker-news.firebaseio.com/v0/beststories.json").then(
-    (r) => r.json()
+export const getBestItemIds = (): Promise<ItemId[]> =>
+  fetch("https://hacker-news.firebaseio.com/v0/beststories.json").then((r) =>
+    r.json()
   );
-};
+
+export const getNewItemIds = (): Promise<ItemId[]> =>
+  fetch("https://hacker-news.firebaseio.com/v0/newstories.json").then((r) =>
+    r.json()
+  );
+
+export const getTopItemIds = (): Promise<ItemId[]> =>
+  fetch("https://hacker-news.firebaseio.com/v0/topstories.json").then((r) =>
+    r.json()
+  );
 
 export type Item = {
   by: string;
@@ -27,7 +36,8 @@ export const getItemDetail = (id: ItemId): Promise<Item | undefined> => {
     });
 };
 
-export const getBestItems = async (): Promise<Array<Item | undefined>> => {
-  const bestItemIds = await getBestItemIds();
-  return Promise.all(bestItemIds.map(getItemDetail));
+export const getItems = async (
+  itemIds: ItemId[]
+): Promise<Array<Item | undefined>> => {
+  return Promise.all(itemIds.map(getItemDetail));
 };

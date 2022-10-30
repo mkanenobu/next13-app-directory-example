@@ -1,4 +1,4 @@
-import "@/styles/global.css";
+import { BaseLayout } from "../src/components/BaseLayout";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -7,16 +7,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <title>Home</title>
       </head>
       <body>
-        <div
-          id="root-layout"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          {children}
-        </div>
+        <BaseLayout>{children}</BaseLayout>
       </body>
     </html>
   );

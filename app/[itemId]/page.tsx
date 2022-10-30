@@ -31,11 +31,11 @@ const Item = async ({
 
   return (
     <div>
-      <div>
+      <h1>
         <Link href={item.url} target="_blank">
           {item.title}
         </Link>
-      </div>
+      </h1>
       <div>by {item.by}</div>
       <div>score {item.score}</div>
       <div>posted at {new Date(item.time * 1000).toLocaleString()}</div>
